@@ -1,0 +1,56 @@
+:root {
+  --block-base-width: 16px;
+  --border-radius: 3px;
+  --anim-time-fn-easing: cubic-bezier(0.38, 0, 0.24, 1);
+  --anim-duration-moderate: 0.24s;
+  --text-primary: rgba(0, 0, 0, 0.9);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+}
+
+#prettyprint-source__mode {
+  position: absolute;
+  top: 20px;
+  right: 150px;
+  height: 50px;
+  #prettyprint-source__mode__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: rgb(238, 238, 238);
+    height: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid rgb(231, 231, 231);
+    padding: 4px 6px;
+    .item {
+      margin: 0 4px;
+      padding: 0 10px;
+      font-size: var(--block-base-width);
+      box-sizing: border-box;
+      transition: all var(--anim-time-fn-easing) var(--anim-duration-moderate);
+      border-radius: var(--border-radius);
+      color: var(--text-secondary);
+      position: relative;
+      word-break: keep-all;
+      white-space: nowrap;
+      &.active {
+        color: var(--text-primary);
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;
+      }
+    }
+  }
+}
+
+#prettyprint-source__loading {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  z-index: 10;
+  img {
+    width: 100%;
+  }
+}

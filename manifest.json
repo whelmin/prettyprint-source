@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Prettyprint Source",
+  "description": "Prettyprint Source",
+  "version": "1.0",
+  "homepage_url": "https://github.com/whelmin/prettyprint-source",
+  "offline_enabled": true,
+  "icons": {
+    "16": "src/assets/logo-16.png",
+    "32": "src/assets/logo-32.png",
+    "48": "src/assets/logo-48.png",
+    "128": "src/assets/logo-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "src/assets/logo-16.png",
+      "32": "src/assets/logo-32.png",
+      "48": "src/assets/logo-48.png",
+      "128": "src/assets/logo-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content-scripts.ts"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "host_permissions": [
+    "*://*/*",
+    "<all_urls>"
+  ],
+  "permissions": [
+    "storage",
+    "webRequest"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "*"
+      ],
+      "use_dynamic_url": true
+    }
+	]
+}
